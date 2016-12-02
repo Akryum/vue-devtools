@@ -4,6 +4,7 @@ import app from './modules/app'
 import components from './modules/components'
 import vuex from './modules/vuex'
 import events from './modules/events'
+import settings from './modules/settings'
 
 Vue.use(Vuex)
 
@@ -12,7 +13,8 @@ const store = new Vuex.Store({
     app,
     components,
     vuex,
-    events
+    events,
+    settings
   }
 })
 
@@ -23,7 +25,8 @@ if (module.hot) {
     './modules/app',
     './modules/components',
     './modules/vuex',
-    './modules/events'
+    './modules/events',
+    './modules/settings'
   ], () => {
     try {
       store.hotUpdate({
@@ -31,7 +34,8 @@ if (module.hot) {
           app: require('./modules/app').default,
           components: require('./modules/components').default,
           vuex: require('./modules/vuex').default,
-          events: require('./modules/events').default
+          events: require('./modules/events').default,
+          settings: require('./modules/settings').default
         }
       })
     } catch (e) {

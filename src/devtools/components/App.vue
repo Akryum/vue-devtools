@@ -14,6 +14,12 @@
       <i class="material-icons">cached</i>
       <span>Refresh</span>
     </a>
+    <a class="button settings"
+      :class="{ active: tab === 'settings'}"
+      @click="switchTab('settings')">
+      <i class="material-icons">settings</i>
+      <span>Settings</span>
+    </a>
     <a class="button events"
       :class="{ active: tab === 'events' }"
       @click="switchTab('events')">
@@ -42,13 +48,15 @@
 import ComponentsTab from './ComponentsTab.vue'
 import EventsTab from './EventsTab.vue'
 import VuexTab from './VuexTab.vue'
+import SettingsTab from './SettingsTab.vue'
 import { mapState } from 'vuex'
 
 export default {
   components: {
     components: ComponentsTab,
     vuex: VuexTab,
-    events: EventsTab
+    events: EventsTab,
+    settings: SettingsTab
   },
   computed: mapState({
     message: state => state.app.message,
